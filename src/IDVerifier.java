@@ -21,4 +21,29 @@ public class IDVerifier {
             }
         }while (choice.equalsIgnoreCase("Y")|| choice.equalsIgnoreCase("Yes"));
     }
+    public static String validateAndGetMessage(String input) {
+        if (input == null || !input.matches("[0-9]{8}")) {
+            return "Invalid!\nTry again!";
+        }
 
+        int idNo = Integer.parseInt(input); // safe to parse since we identified it has 8 digits
+        int[] idDigits = String.valueOf(idNo).chars().map(Character::getNumericValue).toArray();
+
+        int[] weights = {8, 7, 6, 5, 4, 3, 2, 1};
+        int product = 0;
+
+        for (int i = 0; i < 8; i++) {
+            product += (idDigits[i] * weights[i]);
+        }
+        int dotProduct = product / 11;
+
+        if (product % 11 == 0 && dotProduct >= 16) {
+            return "It is a valid faculty ID. ";
+        } else if (product % 11 == 0) {
+            return "It is a valid student ID. ";
+        } else {
+            return "Invalid!\nTry again!";
+        }
+
+    }
+}
