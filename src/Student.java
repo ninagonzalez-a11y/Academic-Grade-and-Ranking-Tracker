@@ -5,8 +5,8 @@ Single reason to change: Student's stored fields change
 
 // [UNDERSTAND]
 public class Student {
-    private String name, idNumber, numericGrade ;
-    private double rawGrade;
+    private String name ;
+    private double rawGrade, idNumber, numericGrade;
     private char letterRank;
 
     public String getIdNumber(){
