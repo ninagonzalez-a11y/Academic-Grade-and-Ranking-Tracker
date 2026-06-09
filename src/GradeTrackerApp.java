@@ -119,5 +119,3 @@ public class GradeTrackerApp {
     private String assignLetterRank(double score) { return "A"; }
     private void computeClassStats(double[] grades) { /* ... */ }
 }
-
-// Testing
