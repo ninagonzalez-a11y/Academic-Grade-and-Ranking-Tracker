@@ -105,4 +105,4 @@ public class GradeCalculator {
             case 'F' -> "Failed";
             default -> "Invalid";
         }; // placeholder
-    }
+}

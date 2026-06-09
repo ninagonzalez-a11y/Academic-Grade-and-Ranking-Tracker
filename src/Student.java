@@ -14,7 +14,7 @@ public class Student {
         return "";
     }
 
-    public void setNumericGrade(String numericGrade){
+    public String setNumericGrade(String numericGrade){
     // [TRACE] Input: 96 or greater than 96; Output: "4.0"
         if (avg >= 96) {
             return "4.0";
@@ -47,7 +47,7 @@ public class Student {
         return 0;
     }
 
-    public void setRawGrade(double rawGrade){
+    public double setRawGrade(double rawGrade){
         double finalGrade = (labAvg * 0.40) + (classPart * 0.05) + (teachEval * 0.05) + (pracExam * 0.20) + (proj * 0.30);
         rawGrade[i] = finalGrade;
         return finalGrade;
@@ -62,7 +62,7 @@ public class Student {
         return "";
     }
 
-    public void setLetterRank(char letterRank){
+    public char setLetterRank(char letterRank){
         // [TRACE] Input: greater than or equal to 96; Output: "S"
         if (avg >= 96) {
             return 'S';
