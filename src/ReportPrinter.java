@@ -2,7 +2,7 @@ public class ReportPrinter {
     private C GradeConstants;
     private GradeCalculator calculator;
 
-    public void printClassStats(StudentRepository repo) {
+    public static void printClassStats(StudentRepository repo) {
         int studentCount = repo.getStudentCount();
         if (studentCount == 0) {
             IO.println("studentCount = 0 - No data to process");
