@@ -8,7 +8,7 @@ public class StudentRepository {
     private Student[] students;
     private int count;
 
-    public void setC(GradeConstants){
+    public void setC(C GradeConstants){
 
     }
 
