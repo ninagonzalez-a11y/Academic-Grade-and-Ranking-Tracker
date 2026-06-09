@@ -4,40 +4,54 @@ Single reason to change: Storage strategy changes
 */
 
 public class StudentRepository {
-    private C GradeConstants;
+    private GradeConstants c;
     private Student[] students;
     private int count;
 
-    public void setC(GradeConstants){
-
+    public StudentRepository(int capacity) {
+        this.students = new Student[capacity];
+        this.count = 0;
     }
 
-    public void addStudent(Student){
-
+    public void addStudent(Student student) {
+        if (count < students.length) {
+            students[count] = student;
+            count++;
+        } else {
+            System.out.println("Repository is full! Cannot add more students.");
+        }
     }
 
-    public void setStudents(Student[]){
-
+    public Student getStudent(int index) {
+        if (index >= 0 && index < count) {
+            return students[index];
+        }
+        return null; // Index out of bounds or unpopulated
     }
 
-    public Student[] getStudents(){
-
+    public void setC(GradeConstants c) {
+        this.c = c;
     }
 
-    public GradeConstants getC(){
-
+    public GradeConstants getC() {
+        return this.c;
     }
 
-    public void setCount(int){
-
+    public void setStudents(Student[] students) {
+        this.students = students;
+        // Automatically sync count to the array size if an external array is provided
+        this.count = (students != null) ? students.length : 0;
     }
 
-    public Student getStudent(int){
-
+    public Student[] getStudents() {
+        return this.students;
     }
 
-    public int getCount(){
+    public void setCount(int count) {
+        this.count = count;
+    }
 
-
+    public int getCount() {
+        return this.count;
     }
 }

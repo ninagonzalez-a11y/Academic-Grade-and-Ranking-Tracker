@@ -6,14 +6,13 @@ Single reason to change: Menu options or wiring changes
 import java.util.Scanner;
 
 public class GradeTrackerApp {
-    // Fields exactly as defined in your diagram
     private IDVerifier idVerifier;
     private StudentInputHandler inputHandler;
     private ReportPrinter printer;
     private StudentRepository repo;
     private GradeConstants C; // Fixed: Type is GradeConstants, name is C
 
-    // Internal data storage needed for inputStudentData() to function
+
     private String[] studentNames = new String[20];
     private double[] rawGrades = new double[20];
     private double[] numericGrades = new double[20];
@@ -35,23 +34,19 @@ public class GradeTrackerApp {
             printSeparatorLine(40);
             System.out.print("\nEnter choice (1-5): "); // Updated prompt to 1-5
 
-            // Assuming IO is a custom helper class provided in your course
             choice = IO.readln().trim();
 
             switch (choice) {
                 case "1":
-                    inputStudentData(); // Calls the private method below
+                    inputStudentData();
                     break;
                 case "2":
-                    // Placeholders for your printing logic
                     System.out.println("Displaying report...");
                     break;
                 case "3":
-                    // Now rawGrades is actually declared and can be passed
                     computeClassStats(rawGrades);
                     break;
                 case "4":
-                    // Using the instance variable from your diagram instead of a static call
                     if (idVerifier != null) {
                         idVerifier.verifyID();
                     } else {
@@ -65,7 +60,7 @@ public class GradeTrackerApp {
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
-        } while (!choice.equals("5")); // Fixed: Loop until option 5 is selected
+        } while (!choice.equals("5"));
     }
 
     // Kept inside the class as requested by your structure diagram
@@ -80,7 +75,6 @@ public class GradeTrackerApp {
 
             System.out.println("--- Entering grades for " + studentNames[i] + "---");
 
-            // Example placeholder logic for methods not shown in your snippet
             double labAvg = inputLabPerformance();
             System.out.printf(" Laboratory Performance Average: %.2f \n", labAvg);
 
@@ -96,7 +90,6 @@ public class GradeTrackerApp {
             System.out.print(" Project: ");
             double proj = Double.parseDouble(IO.readln().trim());
 
-            // Save calculated values into the class arrays
             rawGrades[i] = computeRawGrade(labAvg, classPart, teachEval, pracExam, proj, i);
             numericGrades[i] = assignNumericGrade(rawGrades[i]);
             letterRanks[i] = assignLetterRank(rawGrades[i]);
@@ -111,7 +104,6 @@ public class GradeTrackerApp {
         app.displayMenu();
     }
 
-    // Minimal helper placeholders to prevent compilation errors in this snippet
     private void printSeparatorLine(int len) { /* ... */ }
     private double inputLabPerformance() { return 0.0; }
     private double computeRawGrade(double l, double c, double t, double p, double pr, int i) { return 0.0; }
