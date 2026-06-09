@@ -52,8 +52,7 @@ public class StudentInputHandler {
 
         return new Student(name, labAvg, classPart, teachEval, pracExam, proj);
     }
-
-
+    
     double inputComponentScore(String componentName) {
         IO.print(" " + componentName + ": ");
         return Double.parseDouble(IO.readln().trim());

@@ -22,36 +22,52 @@ public class StudentRepository {
         }
     }
 
+    public int getStudentCount() {
+        return this.count;
+    }
+
     public Student getStudent(int index) {
         if (index >= 0 && index < count) {
             return students[index];
         }
-        return null; // Index out of bounds or unpopulated
+        return null;
     }
 
-    public void setC(GradeConstants c) {
-        this.c = c;
+    // --- Dynamic adapters to support legacy ReportPrinter code ---
+    public double[] getRawGrades() {
+        double[] grades = new double[count];
+        for (int i = 0; i < count; i++) {
+            grades[i] = students[i].getRawGrade();
+        }
+        return grades;
     }
 
-    public GradeConstants getC() {
-        return this.c;
+    public String[] getStudentNames() {
+        String[] names = new String[count];
+        for (int i = 0; i < count; i++) {
+            names[i] = students[i].getName();
+        }
+        return names;
     }
 
-    public void setStudents(Student[] students) {
-        this.students = students;
-        // Automatically sync count to the array size if an external array is provided
-        this.count = (students != null) ? students.length : 0;
+    public String[] getNumericGrades() {
+        String[] grades = new String[count];
+        for (int i = 0; i < count; i++) {
+            grades[i] = students[i].getNumericGrade();
+        }
+        return grades;
     }
 
-    public Student[] getStudents() {
-        return this.students;
+    public char[] getLetterRanks() {
+        char[] ranks = new char[count];
+        for (int i = 0; i < count; i++) {
+            ranks[i] = students[i].getLetterRank();
+        }
+        return ranks;
     }
 
-    public void setCount(int count) {
-        this.count = count;
-    }
-
-    public int getCount() {
-        return this.count;
-    }
+    public void setC(GradeConstants c) { this.c = c; }
+    public GradeConstants getC() { return this.c; }
+    public Student[] getStudents() { return this.students; }
+    public int getCount() { return this.count; }
 }
