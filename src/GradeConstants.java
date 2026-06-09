@@ -1,9 +1,10 @@
 public class GradeConstants {
     static public int ID_LENGTH = 8;
     static public int ID_DIVISOR = 11;
-    static public int FACULTY_THRESHOLD = 8;
-    static public int SEPARATOR = 15;
-    static public int MAX_STUDENTS = 10;
+    static public int FACULTY_THRESHOLD = 16; //uses the dot product >=16 from the prev code
+
+    static public int SEPARATOR = 75; //line width for the separator
+    static public int MAX_STUDENTS = 20; //from the prev code
     static public int NUM_MODULES = 5;
 
     static public double MAX_SCORE = 100;
